@@ -4,9 +4,9 @@
     "slug": "snack-5e86f28b-7005-497f-b581-2f00df099f52",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/logo/icon.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/logo/icon.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
