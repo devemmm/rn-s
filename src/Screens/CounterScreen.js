@@ -1,17 +1,33 @@
-import React, {useState} from 'react'
+import React, {useState, useReducer} from 'react'
 import {View, Text, StyleSheet, Button} from 'react-native'
 
+const reducer = (state, action)=>{
+    // state === {counter: number}
+    // action === {type: 'increase' || 'decrease', payload: number}
+
+    switch(action.type){
+        case 'increase':
+            return {counter: state.counter + action.payload};
+        case 'decrease':
+            return {counter: state.counter - action.payload};
+        default:
+            return state;
+    }
+}
 const CounterScreen = ()=>{
-    const [counter, setCounter] = useState(0)
+    // const [counter, setCounter] = useState(0)
+    const [state, dispacher] = useReducer(reducer, {counter: 0})
+    const {counter} = state;
+
     return(
         <View>
             <Button
                 title="Increase"
-                onPress={()=>setCounter(counter + 1)}
+                onPress={()=>dispacher({type: 'increase', payload: 1})}
             />
             <Button
                 title="Decrease"
-                onPress={()=>setCounter(counter - 1)}
+                onPress={()=>dispacher({type: 'increase', payload: -1})}
             />
             <View style={styles.counterStyle}>
                 <Text style={styles.counterTitle}>Current Counter:</Text>
